@@ -1,0 +1,14 @@
+# Ignore build directories
+build/
+
+# Ignore CMake files
+CMakeCache.txt
+CMakeFiles/
+
+# Ignore compiled binaries
+*.out
+*.exe
+*.o
+*.a
+*.so
+
