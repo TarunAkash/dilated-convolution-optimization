@@ -2,27 +2,38 @@
 #include <vector>
 #include <random>
 
-// Function to generate random input and kernel for testing
-std::vector<int> generate_random_case(int input_size, int kernel_size) {
-    std::vector<int> input(input_size);
-    std::vector<int> kernel(kernel_size);
+// Function to generate random 2D input matrix
+std::vector<std::vector<int>> generate_random_input(int height, int width) {
+    std::vector<std::vector<int>> input(height, std::vector<int>(width));
 
-    // Generate random numbers for input
+    // Random number generation (0 to 255)
     std::random_device rd;
     std::mt19937 gen(rd());
-    std::uniform_int_distribution<> dis(0, 255); // For random values between 0 and 255
+    std::uniform_int_distribution<> dis(0, 255);
 
-    for (int i = 0; i < input_size; ++i) {
-        input[i] = dis(gen);
+    for (int i = 0; i < height; ++i) {
+        for (int j = 0; j < width; ++j) {
+            input[i][j] = dis(gen);
+        }
     }
 
-    // Generate random kernel
-    for (int i = 0; i < kernel_size; ++i) {
-        kernel[i] = dis(gen);
-    }
-
-    // Return input and kernel
-    input.insert(input.end(), kernel.begin(), kernel.end());
     return input;
 }
 
+// Function to generate random 2D kernel matrix
+std::vector<std::vector<int>> generate_random_kernel(int height, int width) {
+    std::vector<std::vector<int>> kernel(height, std::vector<int>(width));
+
+    // Random number generation (0 to 255)
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<> dis(0, 255);
+
+    for (int i = 0; i < height; ++i) {
+        for (int j = 0; j < width; ++j) {
+            kernel[i][j] = dis(gen);
+        }
+    }
+
+    return kernel;
+}

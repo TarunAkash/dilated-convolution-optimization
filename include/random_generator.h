@@ -3,8 +3,10 @@
 
 #include <vector>
 
-// Function to generate random input and kernel for testing
-std::vector<int> generate_random_case(int input_size, int kernel_size);
+// Function to generate random 2D input matrix
+std::vector<std::vector<int>> generate_random_input(int height, int width);
+
+// Function to generate random 2D kernel matrix
+std::vector<std::vector<int>> generate_random_kernel(int height, int width);
 
 #endif // RANDOM_GENERATOR_H
-
